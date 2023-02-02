@@ -17,6 +17,7 @@ const App = () => {
     personService.getAll()
     .then(initialPersons => {
       setPersons(initialPersons)
+      console.log(initialPersons)
     })
   } ,[])
 
@@ -29,7 +30,8 @@ const App = () => {
           setNewNumber('')
       })
       .catch(err => {
-        showNotification('error', `${personObj.name} has already been removed from server`)
+        console.log(err)
+        showNotification('error', `${err} has already been removed from server`)
         personService.getAll()
         .then(initialPersons => {
           setPersons(initialPersons)
